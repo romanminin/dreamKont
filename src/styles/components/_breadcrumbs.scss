@@ -1,0 +1,39 @@
+@use "../helpers" as *;
+
+.breadcrumbs {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        margin: rem(16) 0;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        font-size: var(--font-size-sm);
+
+        &:not(:last-child)::after {
+            content: "›";
+            margin: 0 rem(8);
+            color: var(--color-text-light);
+        }
+    }
+
+    &__link {
+        color: var(--color-text-light);
+        text-decoration: none;
+        transition: color 0.2s;
+
+        &:hover {
+            color: var(--color-primary-hover);
+            text-decoration: underline;
+        }
+    }
+
+    &__current {
+        color: var(--color-primary);
+        font-weight: 500;
+    }
+}

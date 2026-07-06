@@ -1,0 +1,45 @@
+@use "../helpers" as *;
+
+#toast-container{
+    position: fixed;
+    top: rem(20);
+    right: rem(20);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+    pointer-events: none; /* клик проходит "сквозь" контейнер */
+}
+
+/* один тост */
+.toast{
+    min-width: rem(260);
+    max-width: rem(360);
+    padding: 14px 18px;
+    background: var(--color-primary);   /* зелёный успех */
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.25);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity .35s, transform .35s;
+    pointer-events: auto; /* кнопка "×" должна быть кликабельна */
+}
+
+.toast--error{ background: #c62828; }   /* красный для ошибок */
+.toast--info{  background: #0288d1; }   /* синий для инфо        */
+
+.toast.show{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* кнопка закрыть */
+.toast__close{
+    float: right;
+    margin-left: rem(12);
+    font-size: rem(18);
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}

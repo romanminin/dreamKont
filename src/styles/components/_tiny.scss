@@ -1,0 +1,57 @@
+@use "../helpers" as *;
+.text {
+    h1 {
+        @include fluid-text(36, 28);
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: rem(50);
+        position: relative;
+
+        &::after {
+            content: "";
+            display: block;
+            width: rem(80);
+            height: rem(3);
+            background-color: var(--color-primary);
+            margin: rem(15) auto 0;
+        }
+    }
+
+    p {
+        color: var(--color-text-light);
+        line-height: 1.6;
+        margin-bottom: var(--spacing-4);
+        @include laptop {
+            font-size: var(--font-size-lg);
+        }
+        &:last-of-type {
+            margin-bottom: var(--spacing-6);
+        }
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: rem(8);
+        margin-top: rem(10);
+        padding-left: rem(20);
+        li {
+            color: var(--color-text-light);
+            position: relative;
+            &::before {
+                background-color: var(--color-primary);
+                border-radius: 50%;
+                content: "";
+                height: rem(8);
+                left: rem(-20);
+                position: absolute;
+                top: rem(8);
+                width: rem(8);
+            }
+        }
+    }
+ol{
+    li{
+       list-style-type: decimal;
+    }
+}
+}

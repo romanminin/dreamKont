@@ -1,0 +1,235 @@
+@use "../helpers" as *;
+.header {
+  // Header
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background-color: var(--color-white);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+
+  // .header__top
+
+  &__top {
+    border-bottom: 1px solid var(--color-gray-200);
+    padding: var(--spacing-2) 0;
+  }
+
+  // .header__container
+  &__container {
+    @include container;
+  }
+  // .header__contacts
+
+  &__contacts {
+    font-style: normal;
+    @include flex-center;
+    @include laptop {
+      @include flex-between;
+      gap: var(--spacing-6);
+    }
+  }
+
+  // .header__contact
+
+  &__contact {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: var(--spacing-2);
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    transition: color var(--transition-fast);
+    font-weight: 600;
+    @include laptop {
+      justify-content: space-between;
+    }
+    @include hover-focus {
+      color: var(--color-primary);
+    }
+
+    &-icon {
+      height: rem(20);
+      width: rem(20);
+    }
+  }
+
+  // .header__main
+
+  &__main {
+    padding: var(--spacing-4) 0;
+    background-color: var(--color-white);
+
+    &--inner {
+      @include flex-between;
+      gap: var(--spacing-4);
+    }
+  }
+
+  // .header__logo
+
+  &__logo {
+    flex-shrink: 0;
+  }
+
+  // .header__nav
+
+  &__nav {
+    display: none;
+
+    &.is-open {
+      display: block;
+    }
+
+    @include laptop {
+      display: block;
+      flex: 1;
+      margin: 0 var(--spacing-4);
+    }
+    @include widescreen {
+      margin: 0 var(--spacing-8);
+    }
+  }
+
+  // .header__actions
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  // .header__mobile-overlay
+
+  &__mobile-overlay {
+    position: fixed;
+    top: var(--header-height, 0);
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: calc(var(--z-mobile-nav) - 1);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+
+    &.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @include laptop {
+      display: none;
+    }
+  }
+}
+.logo {
+  flex-shrink: 0;
+  // .logo__image
+
+  &__image {
+  }
+}
+
+.actions {
+  gap: var(--spacing-6);
+  // .actions__contact
+
+  &__contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-2);
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    transition: color var(--transition-fast);
+
+    @include hover-focus {
+      color: var(--color-primary);
+    }
+  }
+
+  // .actions__contact--email
+
+  &__contact--email {
+    span {
+      display: none;
+      @include tablet {
+        display: block;
+        font-weight: 600;
+      }
+    }
+  }
+
+  // .actions__contact-icon
+
+  &__contact-icon {
+    height: rem(30);
+    width: rem(30);
+    transition: color var(--transition-fast), transform var(--transition-fast), fill var(--transition-fast);
+    fill: currentColor;
+    @include laptop {
+      height: rem(20);
+      width: rem(20);
+    }
+  }
+
+  // Hover effects for Telegram and WhatsApp
+  &__contact--telegram {
+    @include hover-focus {
+      .actions__contact-icon {
+        color: #0088cc;
+        fill: #0088cc;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__contact--whatsapp {
+    @include hover-focus {
+      .actions__contact-icon {
+        color: #25d366;
+        fill: #25d366;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  // .actions__contact--phone
+
+  &__contact--phone {
+    span {
+      display: none;
+      @include tablet {
+        display: block;
+        font-weight: 600;
+      }
+    }
+  }
+
+  // .actions__call-btn
+
+  &__call-btn {
+    display: none;
+
+    @include desktop {
+      display: inline-flex;
+    }
+  }
+  // .actions__menu-toggle
+
+  &__menu-toggle {
+    @include laptop {
+      display: none;
+    }
+  }
+
+  // .actions__contacts-group
+
+  &__contacts-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+  }
+}

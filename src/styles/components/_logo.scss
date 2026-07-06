@@ -1,0 +1,12 @@
+@use "../helpers" as *;
+
+.logo {
+  @include flex-center;
+  gap: var(--spacing-3);
+  
+  &__image {
+    width: rem(175);
+    height: auto;
+    display: block;
+  }
+}

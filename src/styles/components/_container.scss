@@ -1,0 +1,6 @@
+@use '../helpers' as *;
+
+.container {
+  @include container;
+  overflow-x: hidden;
+}

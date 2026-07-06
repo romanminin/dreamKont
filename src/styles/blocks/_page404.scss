@@ -1,0 +1,65 @@
+@use "../helpers" as *;
+
+.page-404 {
+  // фон на весь viewport
+  height: calc(100vh - var(--header-height, 0));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: rem(24);
+  color: #fff;
+  background-repeat:   no-repeat;
+  background-position: center center;
+  background-size:     cover;
+
+
+  // тёмный оверлей для читаемости текста
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(#000, .55);
+  }
+
+  // центральный блок
+  &__box {
+    position: relative; // поверх оверлея
+    text-align: center;
+    max-width: rem(600);
+  }
+
+  // огромная цифра
+  &__title {
+    margin: 0 0 rem(16);
+    @include fluid-text(192, 80);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -.02em;
+  }
+
+  // подзаголовок
+  &__text {
+    margin: 0 0 rem(32);
+    @include fluid-text(24, 16);
+    line-height: 1.4;
+    opacity: .9;
+  }
+
+  // кнопка «на главную»
+  &__btn {
+    display: inline-block;
+    padding: rem(14) rem(32);
+    @include fluid-text(18, 16);
+    font-weight: 500;
+    color: #fff;
+    background: var(--color-primary);
+    border-radius: rem(8);
+    text-decoration: none;
+    transition: background .3s, transform .3s;
+
+    &:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(rem(-2));
+    }
+  }
+}

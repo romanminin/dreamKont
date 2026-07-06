@@ -1,0 +1,75 @@
+@use '../helpers' as *;
+
+.subscribe {
+  &__inner {
+    @include tablet {
+      @include flex-between;
+      align-items: center;
+    }
+  }
+  
+  &__content {
+    margin-bottom: var(--spacing-6);
+    
+    @include tablet {
+      flex: 1;
+      margin-bottom: 0;
+      margin-right: var(--spacing-8);
+    }
+  }
+  
+  &__title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-3);
+  }
+  
+  &__text {
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+  
+  &__form {
+    @include tablet {
+      min-width: 400px;
+    }
+  }
+  
+  .form-group {
+    position: relative;
+    margin-bottom: var(--spacing-4);
+  }
+  
+  .form-control {
+    padding-right: 120px;
+    border: 2px solid var(--color-gray-200);
+    border-radius: 8px;
+    
+    &:focus {
+      border-color: var(--color-primary);
+    }
+  }
+  
+  .btn {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: var(--spacing-2) var(--spacing-4);
+    font-size: var(--font-size-sm);
+  }
+  
+  &__agree {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-light);
+    
+    a {
+      color: var(--color-primary);
+      text-decoration: underline;
+      
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+@use '../helpers' as *;
+
+.about {
+  padding: var(--spacing-8) 0;
+  background-color: var(--color-white);
+  @include laptop {
+    padding: var(--spacing-12) 0;
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+    align-items: center;
+    @include laptop {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-12);
+    }
+  }
+  &__content {
+    order: 2; // Текст после изображения на мобильных
+    @include laptop {
+      order: 1; // Возвращаем естественный порядок
+    }
+  }
+
+  &__subtitle {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-3);
+    line-height: 1.2;
+    @include laptop {
+      font-size: var(--font-size-2xl);
+    }
+  }
+
+  &__text {
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-4);
+    @include laptop {
+      font-size: var(--font-size-lg);
+    }
+    &:last-of-type {
+      margin-bottom: var(--spacing-6);
+    }
+  }
+
+  &__image {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    order: 1; // Изображение перед текстом на мобильных
+    @include laptop {
+      order: 2; // Возвращаем естественный порядок
+    }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform var(--transition-slow);
+    }
+
+    &:hover img {
+      transform: scale(1.03);
+    }
+  }
+
+  .btn {
+    max-width: rem(250);
+    width: 100%;
+    @include laptop {
+      max-width: none;
+    }
+  }
+}

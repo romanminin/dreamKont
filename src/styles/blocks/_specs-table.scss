@@ -1,0 +1,60 @@
+@use '../helpers' as *;
+
+.specs-table {
+  width: 100%;
+  min-width: 320px;
+  border-collapse: collapse;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+
+  th,
+  td {
+    padding: var(--spacing-3) var(--spacing-4);
+    border-bottom: 1px solid var(--color-gray-200);
+    text-align: left;
+  }
+
+  th {
+    background: var(--color-gray-200);
+    font-weight: 600;
+  }
+
+  .specs-category {
+    td {
+      background: var(--color-gray-100);
+      font-weight: 700;
+      color: var(--color-text);
+      border-bottom: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  @include mobile {
+    display: block;
+    thead { display: none; }
+    tbody { display: block; }
+
+    tr {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-2);
+      padding: var(--spacing-4) 0;
+      border-bottom: 1px solid var(--color-gray-200);
+
+      &.specs-category {
+        grid-template-columns: 1fr;
+        font-size: var(--font-size-sm);
+        td { background: var(--color-gray-100); }
+      }
+    }
+  }
+
+  @include laptop {
+    th,
+    td {
+      padding: var(--spacing-4) var(--spacing-6);
+    }
+  }
+}

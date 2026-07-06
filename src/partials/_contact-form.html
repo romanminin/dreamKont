@@ -1,0 +1,87 @@
+      <section class="contact-form section section--gray">
+        <div class="container">
+          <div class="contact-form__inner">
+            <div
+              class="contact-form__content aos-init aos-animate"
+              data-aos="fade-right"
+            >
+              <h2 class="contact-form__title">Остались вопросы?</h2>
+              <p class="contact-form__text">
+                Заполните форму обратной связи и наш менеджер свяжется с вами в
+                ближайшее время
+              </p>
+              <ul class="contact-form__excellence">
+                <li class="contact-form__advantage">
+                  Ответим на все ваши вопросы
+                </li>
+                <li class="contact-form__advantage">
+                  Поможем с выбором продукции
+                </li>
+                <li class="contact-form__advantage">
+                  Рассчитаем индивидуальные условия
+                </li>
+              </ul>
+            </div>
+            <div class="form-wrapper">
+              <form
+                class="contact-form__form aos-init aos-animate"
+                data-aos="fade-left"
+              >
+                <input type="hidden" name="formid" value="message">
+                <div class="form-group" data-field="name">
+                  <input
+                    class="form-control"
+                    required
+                    type="text"
+                    placeholder="Ваше имя*"
+                    id="contact-name"
+                    name="name"
+                  />
+                </div>
+                <div class="form-group" data-field="tel">
+                  <input
+                    class="form-control"
+                    type="tel"
+                    placeholder="Телефон"
+                    id="contact-phone"
+                    name="phone"
+                  />
+                </div>
+                <div class="form-group" data-field="email">
+                  <input
+                    class="form-control"
+                    required
+                    type="email"
+                    placeholder="Email*"
+                    id="contact-email"
+                    name="email"
+                  />
+                </div>
+                <div class="form-group" data-field="message">
+                  <textarea
+                    class="form-control"
+                    required
+                    id="contact-message"
+                    placeholder="Сообщение*"
+                    rows="3"
+                    name="message"
+                  ></textarea>
+                </div>
+                <div class="form-group form-group--privacy">
+                  <label class="checkbox contact-form__privacy-label">
+                    <input type="checkbox" class="checkbox__input" name="privacy_agree" value="1" required autocomplete="off">
+                    <span class="checkbox__checkmark"></span>
+                    <span class="checkbox__label">
+                      Нажимая кнопку «Отправить», я соглашаюсь с
+                      <a href="/privacy" target="_blank" rel="noopener noreferrer">политикой в отношении обработки персональных данных</a>
+                    </span>
+                  </label>
+                </div>
+                <button class="btn btn--primary btn--block" type="submit" disabled aria-disabled="true">
+                  Отправить
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>

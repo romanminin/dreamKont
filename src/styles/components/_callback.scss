@@ -1,0 +1,150 @@
+@use '../helpers' as *;
+
+// Modal
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-modal);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+  
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-white);
+    border-radius: 12px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    
+    .modal.is-open & {
+      animation: modalSlideIn var(--transition-normal) ease-out;
+    }
+  }
+  
+  &__close {
+    @include button-reset;
+    position: absolute;
+    top: var(--spacing-4);
+    right: var(--spacing-4);
+    width: 32px;
+    height: 32px;
+    @include flex-center;
+    border-radius: 50%;
+    background-color: var(--color-gray-100);
+    color: var(--color-text);
+    font-size: var(--font-size-xl);
+    transition: all var(--transition-fast);
+    
+    @include hover-focus {
+      background-color: var(--color-gray-200);
+      transform: scale(1.1);
+    }
+  }
+  
+  &__header {
+    padding: var(--spacing-6) var(--spacing-6) 0;
+  }
+  
+  &__title {
+    margin: 0;
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+  }
+  
+  &__body {
+    padding: var(--spacing-4) var(--spacing-6) var(--spacing-6);
+  }
+}
+
+// Callback Form
+.callback-form {
+  &__field {
+    margin-bottom: var(--spacing-4);
+  }
+  
+  &__label {
+    display: block;
+    margin-bottom: var(--spacing-2);
+    font-weight: 500;
+    color: var(--color-text);
+  }
+  
+  &__input,
+  &__select {
+    width: 100%;
+    padding: var(--spacing-3) var(--spacing-4);
+    border: 2px solid var(--color-gray-200);
+    border-radius: 8px;
+    font-size: var(--font-size-base);
+    transition: border-color var(--transition-fast);
+    
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+  }
+  
+  &__submit {
+    width: 100%;
+    margin-top: var(--spacing-2);
+  }
+}
+///////////////////////////////////////////////////////////////////////////////////
+.callback-form__field {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.callback-form__field.has-error .callback-form__input,
+.callback-form__field.has-error .callback-form__select {
+    border-color: #ff0000;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}

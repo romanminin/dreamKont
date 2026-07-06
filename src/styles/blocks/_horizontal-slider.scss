@@ -1,0 +1,102 @@
+@use '../helpers' as *;
+
+.horizontal-slider {
+  position: relative;
+  padding: 0 rem(15);
+  margin: 0 -rem(15);
+
+  @include tablet {
+    padding: 0 rem(40);
+    margin: 0 -rem(40);
+  }
+
+  .swiper-slide {
+    height: auto;
+    display: flex;
+
+    &.horizontal-slider__item {
+      display: block;
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: var(--color-white);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+
+        .horizontal-slider__overlay {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      a {
+        display: block;
+        position: relative;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 4; // Сохраняем единые пропорции
+        object-fit: cover;
+        background-color: var(--color-gray-100); // Фон для незагруженных изображений
+      }
+
+      .horizontal-slider__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: scale(0.9);
+        transition: opacity var(--transition-normal), transform var(--transition-normal);
+
+        svg {
+          width: rem(48);
+          height: rem(48);
+          fill: var(--color-white);
+        }
+      }
+    }
+  }
+
+  // Стилизация стрелок навигации
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: var(--color-primary);
+    width: rem(40);
+    height: rem(40);
+    transition: background-color var(--transition-fast);
+
+    &.swiper-button-prev {
+      left: 0;
+    }
+
+    &.swiper-button-next {
+      right: 0;
+    }
+
+    @include tablet {
+      &.swiper-button-prev {
+        left: rem(40);
+      }
+
+      &.swiper-button-next {
+        right: rem(40);
+      }
+    }
+
+    &::after {
+      @include fluid-text(32, 24);
+    }
+  }
+}

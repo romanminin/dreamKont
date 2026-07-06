@@ -1,0 +1,23 @@
+@use "../helpers" as *;
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: rem(8);
+    margin-top: rem(10);
+    padding-left: rem(20);
+    &__values {
+        color: var(--color-text-light);
+        position: relative;
+        &::before {
+            background-color: var(--color-primary);
+            border-radius: 50%;
+            content: "";
+            height: rem(8);
+            left: rem(-20);
+            position: absolute;
+            top: rem(8);
+            width: rem(8);
+        }
+    }
+}

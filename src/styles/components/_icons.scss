@@ -1,0 +1,8 @@
+@use '../helpers' as *;
+
+.icon {
+  width: rem(32);
+  height: rem(32);
+  fill: currentColor;
+  margin-right: rem(10);
+}

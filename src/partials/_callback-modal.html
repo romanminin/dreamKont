@@ -1,0 +1,49 @@
+    <div class="modal" id="callback-modal">
+        <div class="modal__overlay" data-modal-close></div>
+        <div class="modal__content">
+            <button class="modal__close" data-modal-close aria-label="Закрыть">
+                <span>&times;</span>
+            </button>
+            <div class="modal__header">
+                <h2 class="modal__title">Заказать звонок</h2>
+            </div>
+            <div class="modal__body">
+                <div class="form-wrapper">
+                    <form class="callback-form">
+                        <input type="hidden" name="formid" value="callback">
+                        <div class="callback-form__field">
+                            <label for="callback-name" class="callback-form__label">Имя*</label>
+                            <input type="text" id="callback-name" name="name" class="callback-form__input" required>
+                        </div>
+                        <div class="callback-form__field">
+                            <label for="callback-phone" class="callback-form__label">Телефон*</label>
+                            <input type="tel" id="callback-phone" name="phone" class="callback-form__input" required>
+                        </div>
+                        <div class="callback-form__field">
+                            <label for="callback-time" class="callback-form__label">Удобное время звонка</label>
+                            <select id="callback-time" name="time" class="callback-form__select">
+                                <option value="">Выберите время</option>
+                                <option value="9:00 - 12:00">Утром (9:00 - 12:00)</option>
+                                <option value="12:00 - 17:00">Днем (12:00 - 17:00)</option>
+                                <option value="17:00 - 20:00">Вечером (17:00 - 20:00)</option>
+                            </select>
+                        </div>
+                        <div class="callback-form__field callback-form__field--privacy">
+                            <label class="checkbox callback-form__privacy-label">
+                                <input type="checkbox" class="checkbox__input" name="privacy_agree" value="1" required autocomplete="off">
+                                <span class="checkbox__checkmark"></span>
+                                <span class="checkbox__label">
+                                    Нажимая кнопку «Заказать звонок», я соглашаюсь с
+                                    <a href="/privacy" target="_blank" rel="noopener noreferrer">политикой в отношении обработки персональных данных</a>
+                                </span>
+                            </label>
+                        </div>
+                        <button type="submit" class="callback-form__submit btn btn--primary" disabled aria-disabled="true">
+                            Заказать звонок
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{>_cookie-notice}}

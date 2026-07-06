@@ -1,0 +1,31 @@
+@use '../helpers' as *;
+
+.section {
+  padding: rem(80) 0;
+
+  &--gray {
+    background-color: var(--color-gray-100);
+  }
+
+  &__title {
+    @include fluid-text(36, 24);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: rem(50);
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: rem(80);
+      height: rem(3);
+      background-color: var(--color-primary);
+      margin: rem(15) auto 0;
+    }
+  }
+
+  &__footer {
+    text-align: center;
+    margin-top: var(--spacing-6);
+  }
+}

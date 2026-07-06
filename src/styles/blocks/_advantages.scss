@@ -1,0 +1,69 @@
+@use "../helpers" as *;
+
+.advantages {
+  padding: var(--spacing-8) 0;
+  background-color: var(--color-white);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-6);
+    overflow-y: hidden;
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include laptop {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.advantage-card {
+  background-color: var(--color-white);
+  border-radius: 12px;
+  padding: var(--spacing-6);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid var(--color-gray-100);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  &__icon {
+    width: rem(64);
+    height: rem(64);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // background-color: var(--color-primary);
+    // border-radius: 50%;
+    margin-bottom: var(--spacing-4);
+    color: var(--color-white);
+
+    svg {
+      width: rem(32);
+      height: rem(32);
+      fill: currentColor;
+    }
+  }
+
+  &__title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--color-gray-800);
+    margin-bottom: var(--spacing-2);
+  }
+
+  &__text {
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin: 0;
+  }
+}

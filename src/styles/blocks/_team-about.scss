@@ -1,0 +1,89 @@
+@use "../helpers" as *;
+
+.team-about {
+  // вертикальные отступы секции
+  padding-block: clamp(3.75rem, 8vw, 6.25rem); // 60-100px
+
+  // сетка: мобильная = столбец, десктоп = 2 колонки
+  &__grid {
+    display: grid;
+    gap: clamp(2rem, 5vw, 4rem); // 32-64px
+    align-items: center;
+
+    @include laptop {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  // левая колонка с контентом
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+  }
+
+  // заголовок секции
+  .section__title {
+    margin: 0 0 rem(16);
+  }
+
+  // текстовый абзац
+  p {
+    margin: 0;
+    font-size: fluid(18, 16);
+    line-height: 1.6;
+    color: var(--color-text-light);
+  }
+
+  // блок статистики
+  .team-stats {
+    margin-top: rem(32);
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(24) rem(32);
+  }
+
+  // отдельная статистика
+  .team-stat {
+    flex: 1 1 rem(120);
+    text-align: left;
+
+    &__number {
+      font-size: fluid(48, 32);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--color-primary);
+    }
+
+    &__label {
+      margin-top: rem(4);
+      font-size: fluid(16, 14);
+      line-height: 1.4;
+      color: var(--color-text-light);
+    }
+  }
+
+  // правая колонка – изображение
+  &__image {
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: rem(12);
+      box-shadow: 0 rem(8) rem(24) rgba(var(--color-gray-900), .08);
+    }
+  }
+
+  // анимация AOS
+  &[data-aos="fade-right"],
+  &[data-aos="fade-left"] {
+    opacity: 0;
+    transition: opacity .6s ease-out, transform .6s ease-out;
+  }
+  &[data-aos="fade-right"] { transform: translateX(-30px); }
+  &[data-aos="fade-left"]  { transform: translateX(30px); }
+
+  &.aos-animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
